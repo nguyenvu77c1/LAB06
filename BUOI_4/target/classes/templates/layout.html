@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security5"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-primary">
+  <div class="container-fluid">
+    <a class="navbar-brand text-white" href="/home">Web đăng ký khóa học</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link text-white active" aria-current="page"
+             href="/course/create">Add Course</a>
+        </li>
+
+
+      </ul><ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+
+
+
+    </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+
+<div class="container">
+  <section layout:fragment="content">
+    <ul>
+      <li th:each="course : ${listcourse}" th:text="${course.get}">
+
+      </li>
+    </ul>
+  </section>
+</div>
+
+
+<footer class="footer bg-primary py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <h5 class="text-white mb-4">Thông tin</h5>
+        <p class="text-white">Ở đây chúng tôi mang cho bạn các khóa học uy tín và đảm bảo</p>
+      </div>
+      <div class="col-lg-3">
+        <h5 class="text-white mb-4">Liên kết nhanh</h5>
+        <ul class="list-unstyled footer-links">
+          <li><a href="#" class="text-white">Home</a></li>
+          <li><a href="#" class="text-white">About</a></li>
+          <li><a href="#" class="text-white">Services</a></li>
+          <li><a href="#" class="text-white">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3">
+        <h5 class="text-white mb-4">Kết nối</h5>
+        <ul class="list-unstyled footer-contact">
+          <li class="text-white"><i class="text-white  "></i> Thủ Đức - Hồ Chí Minh</li>
+          <li class="text-white"><i class="text-white "></i> 0965552315</li>
+          <li class="text-white"><i class="text-white "></i> nguyenvudeptrai@gmail.com</li>
+        </ul>
+      </div>
+    </div>
+    <div class="row mt-4">
+      <div class="col-lg-12">
+        <p class="text-white text-center">&copy; <span id="displayYear"></span> Được thiết kế và sáng tạo bởi Nguyên Vũ đẹp trai</a></p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">
+</script>
+
+<style>
+  .footer{
+    margin-top: 50px;
+  }
+</style>
+</body>
+</html>

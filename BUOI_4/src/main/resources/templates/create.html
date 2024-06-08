@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
+
+<head>
+    <title>Create Course</title>
+</head>
+
+<body>
+
+<section layout:fragment="content" class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title mb-4">Thêm khóa học</h5>
+                    <form th:action="@{/course/create}" th:object="${course}" method="post">
+                        <div class="mb-3">
+                            <label for="lectureName" class="form-label">Tên khóa học</label>
+                            <input class="form-control" type="text" th:field="*{lectureName}" id="lectureName" placeholder="Tên khóa học">
+                            <div th:if="${#fields.hasErrors('lectureName')}" th:errors="*{lectureName}" class="text-danger"></div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="teacherName" class="form-label">Tên giảng viên</label>
+                            <input class="form-control" type="text" th:field="*{teacherName}" id="teacherName" placeholder="Tên giảng viên">
+                            <div th:if="${#fields.hasErrors('teacherName')}" th:errors="*{teacherName}" class="text-danger"></div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="startDate" class="form-label">Ngày bắt đầu học</label>
+                            <input class="form-control" type="date" th:field="*{startDate}" id="startDate">
+                            <div th:if="${#fields.hasErrors('startDate')}" th:errors="*{startDate}" class="text-danger"></div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="place" class="form-label">Giá khóa học</label>
+                            <input class="form-control" type="text" th:field="*{place}" id="place" placeholder="Giá khóa học">
+                            <div th:if="${#fields.hasErrors('place')}" th:errors="*{place}" class="text-danger"></div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="address" class="form-label">Địa chỉ</label>
+                            <input class="form-control" type="text" th:field="*{address}" id="address" placeholder="Địa chỉ">
+                            <div th:if="${#fields.hasErrors('address')}" th:errors="*{address}" class="text-danger"></div>
+                        </div>
+                        <button type="submit" class="btn btn-success">Add</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</body>
+
+</html>

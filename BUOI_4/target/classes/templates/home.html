@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+
+<head>
+    <title>Home Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Tùy chỉnh CSS cho trang */
+        .container {
+            margin-top: 50px;
+        }
+        .course-table th {
+            text-align: center;
+        }
+    </style>
+    <script>
+        function confirmDelete(event) {
+            if (!confirm("Bạn có chắc chắn muốn xóa khóa học này?")) {
+                event.preventDefault();
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+<section layout:fragment="content" class="container">
+    <h2>Danh sách các khóa học</h2>
+    <table class="table table-bordered course-table">
+        <thead>
+        <tr>
+            <th>Tên khóa học</th>
+            <th>Tên giảng viên</th>
+            <th>Ngày học</th>
+            <th>Giá khóa học</th>
+            <th>Địa chỉ của giảng viên</th>
+            <th>Hành động</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="course : ${Listcourse}">
+            <td th:text="${course.lectureName}"></td>
+            <td th:text="${course.teacherName}"></td>
+            <td th:text="${course.startDate}"></td>
+            <td th:text="${course.place}"></td>
+            <td th:text="${course.address}"></td>
+            <td>
+                <a th:href="@{/course/edit/{id}(id=${course.id})}" class="btn btn-primary btn-sm">Chỉnh sửa</a>
+                <a th:href="@{/course/delete/{id}(id=${course.id})}" class="btn btn-danger btn-sm" onclick="confirmDelete(event)">Xóa</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+
+</body>
+</html>
